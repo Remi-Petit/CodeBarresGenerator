@@ -28,24 +28,29 @@ def codeBarre(request):
         deleteImagesCodesBarres(request, image_path)
 
         liste_code_barre = []
+        liste_code_barre_formate = []
 
         print(0.6 * 96 / 2.54)
         
         for i in range(0,quantite):
             numero_code_barre = str(int(numero_de_depart) + i)
-            while len(numero_code_barre) < 10:
+            while len(numero_code_barre) < 6:
                 numero_code_barre = "0" + numero_code_barre
-            
+
+            numero_image = "0003"+numero_code_barre
+
             # Générer le code-barres
-            ean = Code128(numero_code_barre, writer=ImageWriter())
+            ean = Code128(numero_image, writer=ImageWriter())
             # Configurer le writer pour ne pas afficher le texte en dessous
             options = {
                 'write_text': False
             }
             # Sauvegarder le code-barres dans un fichier
-            filename = ean.save(image_path + numero_code_barre, options)
+            filename = ean.save(image_path + numero_image, options)
             # Ajouter le code-barres dans un tableau
-            liste_code_barre.append(numero_code_barre)
+            liste_code_barre.append([numero_image,format_code_with_spaces(numero_image)])
+
+            liste_code_barre_formate.append(format_code_with_spaces(numero_image))
 
     template = loader.get_template("pageGenerator/code-barres.html")
     context = {
@@ -66,3 +71,7 @@ def deleteImagesCodesBarres(request, image_path):
                 os.unlink(file_path)
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+def format_code_with_spaces(code):
+    """Formate le code en ajoutant des espaces aux bons endroits."""
+    return f"{code[0]} {code[1:4]} {code[4:7]} {code[7:]}"

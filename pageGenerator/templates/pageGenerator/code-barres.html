@@ -15,7 +15,7 @@
     </div>
 
     <button id="capture-btn">Convertir en image</button>
-
+    
     <div id="container-table">
         <div class="container-table">
             {% for i in "12" %}
@@ -24,8 +24,8 @@
                     <tbody>
                         {% for code_barre in liste_code_barre %}
                         <tr>
-                            <td><img src="{% static 'pageGenerator/images/code-barre/' %}{{code_barre}}.png"></td>
-                            <td>{{code_barre}}</td>
+                            <td><img src="{% static 'pageGenerator/images/code-barre/' %}{{code_barre.0}}.png"></td>
+                            <td>{{code_barre.1}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
