@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Code-Barres</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pageGenerator/css/code-barres/main.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Générateur de Code-Barres</h1>
+        <p>De {{numero_de_depart}} à {{numero_de_depart|add:quantite|add:-1}} | Total : {{numero_de_depart|add:quantite}} étiquettes</p>
+    </div>
+
+    <button id="capture-btn">Convertir en image</button>
+
+    <div id="container-table">
+        <div class="container-table">
+            {% for i in "12" %}
+            <div>
+                <table>
+                    <tbody>
+                        {% for code_barre in liste_code_barre %}
+                        <tr>
+                            <td><img src="{% static 'pageGenerator/images/code-barre/' %}{{code_barre}}.png"></td>
+                            <td>{{code_barre}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+    <div>
+
+    <script>
+        var numero_de_depart = {{numero_de_depart}};
+        var numero_de_fin = {{numero_de_depart|add:quantite|add:-1}}
+    </script>
+
+    <button id="capture-btn">Convertir en image</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="{% static 'pageGenerator/js/code-barres/html_to_img.js' %}"></script>
+</body>
+</html>

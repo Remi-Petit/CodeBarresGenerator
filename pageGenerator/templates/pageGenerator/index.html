@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Code-Barres</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pageGenerator/css/index/main.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Générateur de Code-Barres</h1>
+        <form method="post" role="form" action="code-barre">
+            {% csrf_token %}
+            <div>
+                <label for="numero_de_depart">Numéro de départ</label>
+                <input type="number" name="numero_de_depart" value="0">
+            </div>
+            <div>
+                <label for="quantite">Nombre de code-barres</label>
+                <input type="number" name="quantite" value="34">
+            </div>
+            <input type="submit" value="Envoyer">
+            <p>{{filename}}</p>
+        </form>
+    </div>
+</body>
+</html>

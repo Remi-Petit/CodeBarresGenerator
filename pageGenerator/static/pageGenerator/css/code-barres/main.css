@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    margin: 30px auto;
+}
+h1 {
+    color: #333;
+}
+
+
+
+#capture-btn {
+    background-color: #4CAF50; /* Couleur de fond du bouton */
+    border: none; /* Supprimer la bordure du bouton */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur du bouton */
+    text-align: center; /* Centrer le texte du bouton */
+    text-decoration: none; /* Supprimer la décoration du texte */
+    display: inline-block; /* Afficher le bouton en ligne */
+    font-size: 16px; /* Taille de la police */
+    margin: 4px 2px; /* Marges extérieures du bouton */
+    cursor: pointer; /* Afficher un curseur de pointeur au survol */
+    border-radius: 4px; /* Arrondir les coins du bouton */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* Ajouter une ombre portée au bouton */
+
+    display: block;
+    margin: 50px auto;
+}
+  
+#capture-btn:hover {
+    background-color: #3e8e41; /* Couleur de fond du bouton au survol */
+}
+
+
+
+.container-table {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* convertir cm en px */
+/* pixels = centimeters * dpi / 2.54 */
+td img {
+    width: 50%;
+    max-height: 0.6cm;
+    position: relative;
+    top: 1.5px;
+}
+
+tr {
+    display: block;
+    margin-bottom: 10px;
+}
+
+td:nth-child(2) {
+    text-align: end;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+td {
+    width: 9cm;
+    height: 0.6cm;
+    background-color: white;
+    border: solid 1px black;
+    overflow: hidden;
+}
+
+
+.container-table div:nth-child(2) table{
+    margin-left: 10px;
+}
