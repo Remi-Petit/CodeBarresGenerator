@@ -4,6 +4,8 @@ Projet GDS Orano
 
 # Mise en marche :
 
+python -m venv env
+
 env/Scripts/activate
 
 pip install --no-cache-dir -r requirements.txt
