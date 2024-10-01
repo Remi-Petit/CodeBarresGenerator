@@ -2,13 +2,14 @@ from django.http import HttpResponse
 from django.template import loader
 
 import os
+import barcode
 
 # Code-barres à 12 chiffres
-from barcode import EAN13
+#from barcode import EAN13
 # Code-barres à 10 chiffres
 from barcode import Code128
 # Code-barres à 10 chiffres
-from barcode import Code39
+#from barcode import Code39
 from barcode.writer import ImageWriter
 
 
